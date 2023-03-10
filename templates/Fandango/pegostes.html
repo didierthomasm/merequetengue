@@ -1,0 +1,19 @@
+{% extends 'Merequetengue/base_template.html' %}
+
+{% block title %}[[ user.username }} | Pegostes{% endblock %}
+
+{% block content %}
+    {% if pegoste_list %}
+
+        <ul>
+        {% for pegoste in pegoste_list %}
+        <li>
+            <a href="{% url 'Fandango:pegoste' pegoste.author.username pegoste.slug %}">{{ pegoste.title }}</a>
+        </li>
+        {% endfor %}
+        </ul>
+
+    {% else %}
+        No pegosteadores yet? Dude, step up your game!
+    {% endif %}
+{% endblock %}
